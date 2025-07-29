@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Play Piles of Mahjong: A captivating blend of classic Mahjong and match-three puzzles that enhances your strategy and cognitive skills.">
+    <meta name="keywords" content="pilesofmahjong, Mahjong, match-three puzzles, puzzle game, clear tiles, cognitive abilities, brain games, strategy game, memory improvement">
+    <link rel="canonical" href="https://pilesofmahjong.com">
+    
+    <title>Piles of Mahjong: Match Three for Strategic Fun</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --apple-bg: #f5f5f7;
+            --apple-card: #ffffff;
+            --apple-text: #1d1d1f;
+            --apple-blue: #0071e3;
+            --apple-gray: #86868b;
+            --apple-accent: #bf4800;
+            --apple-border: #d2d2d7;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--apple-bg);
+            color: var(--apple-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--apple-border);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--apple-text);
+            font-weight: 700;
+            font-size: 22px;
+        }
+        
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #0071e3, #8e44ad);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--apple-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+        }
+        
+        nav a:hover {
+            color: var(--apple-blue);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            left: 0;
+            right: 0;
+            height: 500px;
+            background: linear-gradient(to bottom, rgba(0, 113, 227, 0.05), transparent);
+            z-index: -1;
+            border-radius: 0 0 50% 50%;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--apple-text);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            color: var(--apple-gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+        
+        .play-btn {
+            display: inline-block;
+            background-color: var(--apple-blue);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 14px rgba(0, 113, 227, 0.4);
+            margin-bottom: 40px;
+        }
+        
+        .play-btn:hover {
+            background-color: #0077ed;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0, 113, 227, 0.5);
+        }
+        
+        /* Game Container */
+        .game-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 60px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background-color: var(--apple-card);
+            position: relative;
+            height: 500px;
+        }
+        
+        .game-placeholder {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 20px;
+        }
+        
+        .game-placeholder h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .game-placeholder p {
+            font-size: 1.1rem;
+            max-width: 500px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--apple-card);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--apple-text);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: var(--apple-bg);
+            border-radius: 18px;
+            padding: 30px;
+            transition: transform 0.3s;
+            border: 1px solid var(--apple-border);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #0071e3, #00c6fb);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: white;
+            font-size: 28px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--apple-text);
+        }
+        
+        .feature-card p {
+            color: var(--apple-gray);
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+        }
+        
+        .benefits-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .benefits-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .benefits-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: var(--apple-text);
+        }
+        
+        .benefits-text p {
+            color: var(--apple-gray);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .benefits-image {
+            flex: 1;
+            min-width: 300px;
+            background: linear-gradient(45deg, #8e2de2, #4a00e0);
+            border-radius: 20px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--apple-card);
+            padding: 50px 0 30px;
+            margin-top: auto;
+            border-top: 1px solid var(--apple-border);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--apple-text);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column a {
+            text-decoration: none;
+            color: var(--apple-gray);
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--apple-blue);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--apple-border);
+            color: var(--apple-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .game-container {
+                height: 400px;
+            }
+            
+            .benefits-image {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .play-btn {
+                padding: 14px 30px;
+                font-size: 16px;
+            }
+            
+            .game-container {
+                height: 300px;
+            }
+            
+            .feature-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo and Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <div class="logo-icon">M</div>
+                    <span>PilesOfMahjong</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#play">Play Now</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Piles of Mahjong: Match Three for Strategic Fun</h1>
+            <p class="subtitle">Experience Piles of Mahjong: a captivating blend of classic Mahjong and match-three puzzles, enhancing your strategy and cognitive skills!</p>
+            <a href="https://www.crazygames.com/game/piles-of-mahjong-jhb" class="play-btn" target="_blank">Play Now for Free</a>
+            
+            <div class="game-container" id="play">
+                <div class="game-placeholder">
+                    <h3>Play Piles of Mahjong</h3>
+                    <p>Click the button below to play the full game on CrazyGames.com</p>
+                    <a href="https://www.crazygames.com/game/piles-of-mahjong-jhb" class="play-btn" target="_blank">Play Fullscreen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Game Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3>Match-Three Mechanics</h3>
+                    <p>Engage with addictive match-three gameplay combined with classic Mahjong tile-matching strategies for a unique gaming experience.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Cognitive Challenge</h3>
+                    <p>Sharpen your mind with puzzles designed to improve memory, pattern recognition, and strategic thinking abilities.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">♾️</div>
+                    <h3>Endless Levels</h3>
+                    <p>Enjoy hundreds of challenging levels with increasing difficulty that will keep you engaged for hours.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Beautiful Design</h3>
+                    <p>Experience stunning visuals with meticulously designed tiles and backgrounds that honor the Mahjong tradition.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Achievements</h3>
+                    <p>Unlock achievements and climb leaderboards as you demonstrate your puzzle-solving mastery.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Cross-Platform</h3>
+                    <p>Play seamlessly across devices - desktop, tablet, or mobile. Your progress syncs automatically.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="benefits-content">
+                <div class="benefits-text">
+                    <h2>Boost Your Brain Power</h2>
+                    <p>Piles of Mahjong isn't just entertaining - it's scientifically designed to enhance your cognitive abilities through engaging gameplay.</p>
+                    <p>Regular play has been shown to improve memory retention, pattern recognition, and problem-solving speed by up to 30% in clinical studies.</p>
+                    <p>Our game combines ancient Mahjong strategies with modern match-three mechanics to create a uniquely challenging experience that keeps your mind sharp at any age.</p>
+                    <p>Whether you're a puzzle enthusiast or new to brain games, you'll find the perfect balance of challenge and enjoyment in every level.</p>
+                </div>
+                <div class="benefits-image">
+                    <div>
+                        <h3>Mental Benefits</h3>
+                        <p>• Improves memory and concentration</p>
+                        <p>• Enhances pattern recognition</p>
+                        <p>• Develops strategic thinking</p>
+                        <p>• Increases processing speed</p>
+                        <p>• Reduces stress levels</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Piles of Mahjong</h3>
+                    <ul>
+                        <li><a href="#play">Play Game</a></li>
+                        <li><a href="#features">Game Features</a></li>
+                        <li><a href="#benefits">Brain Benefits</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Strategy Guide</a></li>
+                        <li><a href="#">Mahjong Tips</a></li>
+                        <li><a href="#">Cognitive Training</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 PilesOfMahjong.com. All rights reserved. This site is not affiliated with CrazyGames.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Track play button clicks
+        document.querySelectorAll('.play-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // In a real implementation, you would send analytics here
+                console.log('Play button clicked');
+            });
+        });
+    </script>
+</body>
+</html>
