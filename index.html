@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9341704667724928"
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9341704667724928"
      crossorigin="anonymous"></script>
     <meta name="google-adsense-account" content="ca-pub-9341704667724928">
     <!-- Google tag (gtag.js) -->
@@ -15,26 +15,22 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Play Piles of Mahjong: A captivating blend of classic Mahjong and match-three puzzles that enhances your strategy and cognitive skills.">
+    <meta name="description" content="Play Piles of Mahjong: a captivating blend of classic Mahjong and match-three puzzles that enhances your strategy and cognitive skills!">
     <meta name="keywords" content="pilesofmahjong, Mahjong, match-three puzzles, puzzle game, clear tiles, cognitive abilities, brain games, strategy game, memory improvement">
     <link rel="canonical" href="https://pilesofmahjong.com">
-    
     <title>Piles of Mahjong: Match Three for Strategic Fun</title>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --apple-bg: #f5f5f7;
-            --apple-card: #ffffff;
-            --apple-text: #1d1d1f;
+            --apple-gray: #f5f5f7;
             --apple-blue: #0071e3;
-            --apple-gray: #86868b;
-            --apple-accent: #bf4800;
-            --apple-border: #d2d2d7;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --apple-dark: #1d1d1f;
+            --apple-light: #fbfbfd;
+            --apple-blue-light: #e6f1ff;
+            --apple-blue-dark: #0047ab;
         }
         
         * {
@@ -44,14 +40,12 @@
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--apple-bg);
-            color: var(--apple-text);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #fbfbfd 0%, #f5f5f7 100%);
+            color: #1d1d1f;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            overflow-x: hidden;
+            line-height: 1.6;
         }
         
         .container {
@@ -63,378 +57,618 @@
         
         /* Header Styles */
         header {
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid var(--apple-border);
         }
         
         .header-content {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        @media (min-width: 768px) {
+            .logo-container {
+                margin-bottom: 0;
+            }
         }
         
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--apple-text);
-            font-weight: 700;
-            font-size: 22px;
-        }
-        
-        .logo-icon {
-            width: 42px;
-            height: 42px;
-            background: linear-gradient(135deg, #0071e3, #8e44ad);
-            border-radius: 10px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--apple-blue), var(--apple-blue-dark));
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-right: 12px;
+        }
+        
+        .logo span {
             color: white;
-            font-weight: bold;
-            font-size: 20px;
+            font-size: 28px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
         }
         
-        nav ul {
+        .logo-text {
+            font-weight: 800;
+            font-size: 28px;
+            background: linear-gradient(135deg, var(--apple-blue), var(--apple-blue-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .nav-links {
             display: flex;
-            list-style: none;
-            gap: 30px;
+            gap: 10px;
         }
         
-        nav a {
-            text-decoration: none;
-            color: var(--apple-text);
+        .nav-links a {
+            padding: 8px 18px;
+            border-radius: 30px;
+            background: var(--apple-light);
+            color: var(--apple-dark);
             font-weight: 500;
-            transition: color 0.3s;
-            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
         
-        nav a:hover {
-            color: var(--apple-blue);
+        .nav-links a:hover {
+            background: var(--apple-gray);
         }
         
         /* Hero Section */
         .hero {
-            padding: 80px 0 60px;
+            padding: 50px 0;
             text-align: center;
-            position: relative;
         }
         
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: -100px;
-            left: 0;
-            right: 0;
-            height: 500px;
-            background: linear-gradient(to bottom, rgba(0, 113, 227, 0.05), transparent);
-            z-index: -1;
-            border-radius: 0 0 50% 50%;
-        }
-        
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
             margin-bottom: 20px;
             line-height: 1.2;
-            color: var(--apple-text);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
         }
         
-        .subtitle {
-            font-size: 1.4rem;
-            color: var(--apple-gray);
-            max-width: 700px;
-            margin: 0 auto 40px;
-            font-weight: 400;
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        .hero h1 span {
+            color: var(--apple-blue);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .game-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding-top: 75%; /* 4:3 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            background: #000;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .game-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
         
         .play-btn {
-            display: inline-block;
-            background-color: var(--apple-blue);
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--apple-blue), var(--apple-blue-dark));
             color: white;
-            padding: 16px 40px;
-            border-radius: 30px;
-            text-decoration: none;
             font-weight: 600;
-            font-size: 18px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 14px rgba(0, 113, 227, 0.4);
-            margin-bottom: 40px;
+            font-size: 1.1rem;
+            padding: 15px 35px;
+            border-radius: 15px;
+            text-decoration: none;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 113, 227, 0.3);
         }
         
         .play-btn:hover {
-            background-color: #0077ed;
             transform: translateY(-3px);
-            box-shadow: 0 6px 18px rgba(0, 113, 227, 0.5);
+            box-shadow: 0 8px 20px rgba(0, 113, 227, 0.4);
         }
         
-        /* Game Container */
-        .game-container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto 60px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            background-color: var(--apple-card);
-            position: relative;
-            height: 500px;
+        .play-btn i {
+            margin-right: 10px;
         }
         
-        .game-placeholder {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            padding: 20px;
+        .device-note {
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: 15px;
         }
         
-        .game-placeholder h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .game-placeholder p {
-            font-size: 1.1rem;
-            max-width: 500px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background-color: var(--apple-card);
+        /* Benefits Section */
+        .section {
+            padding: 70px 0;
         }
         
         .section-title {
             text-align: center;
-            font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
+            font-weight: 700;
             margin-bottom: 60px;
-            color: var(--apple-text);
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            background: var(--apple-bg);
-            border-radius: 18px;
-            padding: 30px;
-            transition: transform 0.3s;
-            border: 1px solid var(--apple-border);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow);
-        }
-        
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #0071e3, #00c6fb);
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
-            color: white;
-            font-size: 28px;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--apple-text);
-        }
-        
-        .feature-card p {
-            color: var(--apple-gray);
-        }
-        
-        /* Benefits Section */
-        .benefits {
-            padding: 80px 0;
-        }
-        
-        .benefits-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .benefits-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .benefits-text h2 {
+            position: relative;
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 25px;
-            color: var(--apple-text);
         }
         
-        .benefits-text p {
-            color: var(--apple-gray);
-            margin-bottom: 20px;
-            font-size: 1.1rem;
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--apple-blue), var(--apple-blue-dark));
+            border-radius: 2px;
         }
         
-        .benefits-image {
-            flex: 1;
-            min-width: 300px;
-            background: linear-gradient(45deg, #8e2de2, #4a00e0);
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        
+        @media (min-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .benefits-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .benefit-card {
+            background: white;
             border-radius: 20px;
-            height: 400px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 113, 227, 0.1);
+            margin: 0 auto 25px;
+        }
+        
+        .icon-circle i {
+            font-size: 30px;
+            color: var(--apple-blue);
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        .benefit-card p {
+            color: #666;
+        }
+        
+        /* Features Section */
+        .features-container {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 50px;
+        }
+        
+        .feature {
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+        }
+        
+        @media (min-width: 992px) {
+            .feature {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+        
+        .feature-image {
+            flex: 1;
+            min-height: 300px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--apple-blue-light), white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        @media (min-width: 992px) {
+            .feature-image {
+                margin-bottom: 0;
+                margin-right: 40px;
+            }
+        }
+        
+        .feature-content {
+            flex: 1;
+        }
+        
+        .feature h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .feature-list {
+            list-style: none;
+        }
+        
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        
+        .feature-list i {
+            color: var(--apple-blue);
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .stat-box {
+            background: rgba(0, 113, 227, 0.05);
+            border: 1px solid rgba(0, 113, 227, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--apple-blue);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        
+        @media (min-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--apple-blue), var(--apple-blue-dark));
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        
+        .testimonial-info h4 {
             font-size: 1.2rem;
-            text-align: center;
-            padding: 30px;
-            box-shadow: var(--shadow);
+            margin-bottom: 5px;
+        }
+        
+        .stars {
+            color: #FFC107;
+        }
+        
+        .testimonial-text {
+            color: #666;
+            font-style: italic;
+            line-height: 1.7;
         }
         
         /* Footer */
         footer {
-            background-color: var(--apple-card);
-            padding: 50px 0 30px;
-            margin-top: auto;
-            border-top: 1px solid var(--apple-border);
+            background: var(--apple-dark);
+            color: white;
+            padding: 60px 0 30px;
         }
         
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 40px;
             margin-bottom: 40px;
         }
         
-        .footer-column {
-            flex: 1;
-            min-width: 200px;
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
         
         .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: var(--apple-text);
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
         }
         
-        .footer-column ul {
+        .footer-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--apple-blue), var(--apple-blue-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+        }
+        
+        .footer-logo span {
+            color: white;
+            font-weight: 700;
+        }
+        
+        .footer-column p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: #ccc;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: white;
+        }
+        
+        .footer-column h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
             list-style: none;
         }
         
-        .footer-column ul li {
+        .footer-links li {
             margin-bottom: 12px;
         }
         
-        .footer-column a {
+        .footer-links a {
+            color: #aaa;
             text-decoration: none;
-            color: var(--apple-gray);
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
         
-        .footer-column a:hover {
-            color: var(--apple-blue);
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .newsletter input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px 0 0 8px;
+            border: none;
+            font-family: inherit;
+        }
+        
+        .newsletter button {
+            background: var(--apple-blue);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .newsletter button:hover {
+            background: var(--apple-blue-dark);
+        }
+        
+        .newsletter-group {
+            display: flex;
+            margin-bottom: 10px;
         }
         
         .copyright {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid var(--apple-border);
-            color: var(--apple-gray);
+            border-top: 1px solid #333;
+            color: #777;
             font-size: 0.9rem;
         }
         
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            nav ul {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .game-container {
-                height: 400px;
-            }
-            
-            .benefits-image {
-                height: 300px;
-            }
+        /* Game Loading */
+        .game-loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            z-index: 10;
+            transition: opacity 0.3s ease;
         }
         
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .play-btn {
-                padding: 14px 30px;
-                font-size: 16px;
-            }
-            
-            .game-container {
-                height: 300px;
-            }
-            
-            .feature-card {
-                padding: 20px;
-            }
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            border-top: 5px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .game-error {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            z-index: 20;
+        }
+        
+        .error-content {
+            max-width: 500px;
+        }
+        
+        .error-btn {
+            background: var(--apple-blue);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .error-btn:hover {
+            background: var(--apple-blue-dark);
         }
     </style>
 </head>
 <body>
-    <!-- Header with Logo and Navigation -->
+    <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="/" class="logo">
-                    <div class="logo-icon">M</div>
-                    <span>PilesOfMahjong</span>
-                </a>
-                <nav>
-                    <ul>
-                        <li><a href="#play">Play Now</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#benefits">Benefits</a></li>
-                        <li><a href="#about">About</a></li>
-                    </ul>
-                </nav>
+                <div class="logo-container">
+                    <div class="logo">
+                        <span>M</span>
+                    </div>
+                    <h1 class="logo-text">Piles of Mahjong</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="#">Home</a>
+                    <a href="#">Play</a>
+                    <a href="#">About</a>
+                </div>
             </div>
         </div>
     </header>
@@ -442,84 +676,680 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Piles of Mahjong: Match Three for Strategic Fun</h1>
-            <p class="subtitle">Experience Piles of Mahjong: a captivating blend of classic Mahjong and match-three puzzles, enhancing your strategy and cognitive skills!</p>
-            <a href="https://www.crazygames.com/game/piles-of-mahjong-jhb" class="play-btn" target="_blank">Play Now for Free</a>
+            <h1>Piles of Mahjong:<br><span>Match Three for Strategic Fun</span></h1>
+            <p>Experience Piles of Mahjong: a captivating blend of classic Mahjong and match-three puzzles, enhancing your strategy and cognitive skills!</p>
             
-            <div class="game-container" id="play">
-                <div class="game-placeholder">
-                    <h3>Play Piles of Mahjong</h3>
-                    <p>Click the button below to play the full game on CrazyGames.com</p>
-                    <a href="https://www.crazygames.com/game/piles-of-mahjong-jhb" class="play-btn" target="_blank">Play Fullscreen</a>
+            <div class="game-container">
+                <div class="game-loading" id="gameLoader">
+                    <div class="loader"></div>
+                    <p>Loading game...</p>
+                </div>
+                <div class="game-error" id="gameError">
+                    <div class="error-content">
+                        <h3>Game Loading Error</h3>
+                        <p>We're having trouble loading the game. Please try the following:</p>
+                        <ul style="text-align: left; margin: 15px 0 15px 20px;">
+                            <li>Check your internet connection</li>
+                            <li>Refresh the page</li>
+                            <li>Try using a different browser</li>
+                        </ul>
+                        <button class="error-btn" onclick="location.reload()">Reload Page</button>
+                    </div>
+                </div>
+                <iframe 
+                    src="https://games.crazygames.com/en_US/piles-of-mahjong-jhb/index.html?v=1.336" 
+                    allow="fullscreen" 
+                    id="gameFrame"
+                    onload="hideLoader()"
+                ></iframe>
+            </div>
+            
+            <button class="play-btn" onclick="enterFullscreen()">
+                <i class="fas fa-play"></i> Play Now in Fullscreen
+            </button>
+            <p class="device-note">Works on all devices - PC, tablet and mobile</p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section" style="background: linear-gradient(135deg, #fbfbfd 0%, #f5f5f7 100%);">
+        <div class="container">
+            <h2 class="section-title">Cognitive Benefits</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="icon-circle">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Memory Improvement</h3>
+                    <p>Enhance your short-term memory by remembering tile positions and patterns.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="icon-circle">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <h3>Strategic Thinking</h3>
+                    <p>Develop long-term planning skills by thinking several moves ahead.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="icon-circle">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Problem Solving</h3>
+                    <p>Sharpen your ability to analyze complex situations and find solutions.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="icon-circle">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Quick Decision Making</h3>
+                    <p>Improve your reaction time with time-limited challenges.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features" id="features">
+    <section class="section">
         <div class="container">
             <h2 class="section-title">Game Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🎮</div>
-                    <h3>Match-Three Mechanics</h3>
-                    <p>Engage with addictive match-three gameplay combined with classic Mahjong tile-matching strategies for a unique gaming experience.</p>
+            
+            <div class="features-container">
+                <div class="feature">
+                    <div class="feature-image">
+                        <div style="text-align: center;">
+                            <div style="font-size: 60px; color: var(--apple-blue); margin-bottom: 20px;">
+                                <i class="fas fa-tiles"></i>
+                            </div>
+                            <h3 style="color: var(--apple-blue); font-weight: 700;">Mahjong Tiles</h3>
+                        </div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Classic Mahjong Meets Modern Match-Three</h3>
+                        <p>Piles of Mahjong combines the traditional tile-matching gameplay of Mahjong with the addictive mechanics of modern match-three puzzles.</p>
+                        <ul class="feature-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Hundreds of challenging levels with increasing difficulty</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Beautifully designed tiles and relaxing backgrounds</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Multiple game modes for varied gameplay experiences</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Daily challenges and special events</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🧠</div>
-                    <h3>Cognitive Challenge</h3>
-                    <p>Sharpen your mind with puzzles designed to improve memory, pattern recognition, and strategic thinking abilities.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">♾️</div>
-                    <h3>Endless Levels</h3>
-                    <p>Enjoy hundreds of challenging levels with increasing difficulty that will keep you engaged for hours.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Beautiful Design</h3>
-                    <p>Experience stunning visuals with meticulously designed tiles and backgrounds that honor the Mahjong tradition.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🏆</div>
-                    <h3>Achievements</h3>
-                    <p>Unlock achievements and climb leaderboards as you demonstrate your puzzle-solving mastery.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Cross-Platform</h3>
-                    <p>Play seamlessly across devices - desktop, tablet, or mobile. Your progress syncs automatically.</p>
+            </div>
+            
+            <div class="features-container">
+                <div class="feature">
+                    <div class="feature-image">
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                            <div style="width: 70px; height: 70px; background: var(--apple-blue); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-brain" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <div style="width: 70px; height: 70px; background: var(--apple-blue); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-lightbulb" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <div style="width: 70px; height: 70px; background: var(--apple-blue); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-chart-line" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <div style="width: 70px; height: 70px; background: var(--apple-blue); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-clock" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <div style="width: 70px; height: 70px; background: var(--apple-blue); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-puzzle-piece" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <div style="width: 70px; height: 70px; background: var(--apple-blue); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-memory" style="color: white; font-size: 24px;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Enhance Your Cognitive Abilities</h3>
+                        <p>Scientific studies show that puzzle games like Piles of Mahjong can significantly improve cognitive functions and mental agility:</p>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-value">37%</div>
+                                <div class="stat-label">Problem-Solving</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-value">29%</div>
+                                <div class="stat-label">Decision Making</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-value">42%</div>
+                                <div class="stat-label">Pattern Recognition</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-value">33%</div>
+                                <div class="stat-label">Memory Recall</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Benefits Section -->
-    <section class="benefits" id="benefits">
-        <div class="container">
-            <div class="benefits-content">
-                <div class="benefits-text">
-                    <h2>Boost Your Brain Power</h2>
-                    <p>Piles of Mahjong isn't just entertaining - it's scientifically designed to enhance your cognitive abilities through engaging gameplay.</p>
-                    <p>Regular play has been shown to improve memory retention, pattern recognition, and problem-solving speed by up to 30% in clinical studies.</p>
-                    <p>Our game combines ancient Mahjong strategies with modern match-three mechanics to create a uniquely challenging experience that keeps your mind sharp at any age.</p>
-                    <p>Whether you're a puzzle enthusiast or new to brain games, you'll find the perfect balance of challenge and enjoyment in every level.</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Preview Embed Solution</title>
+    <style>
+        /* Add unique namespaces to avoid style conflicts */
+        .game-preview-container {
+            --gp-primary: #2c2c54;
+            --gp-secondary: #40407a;
+            --gp-accent: #00cec9;
+            --gp-text: #ffffff;
+            --gp-bg: #1a1a2e;
+            --gp-card-bg: linear-gradient(145deg, var(--gp-primary), var(--gp-secondary));
+            --gp-overlay: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            --gp-button: linear-gradient(45deg, var(--gp-accent), #0984e3);
+            
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--gp-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            max-width: 1400px;
+            margin: 20px auto;
+        }
+        
+        /* Avoid global style effects */
+        .game-preview-container * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+        }
+        
+        /* Component internal style */
+        .game-preview-container .gp-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+        
+        .game-preview-container .gp-header h2 {
+            font-size: 2.2rem;
+            color: var(--gp-text);
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00dbde, #fc00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 10px rgba(0, 200, 255, 0.2);
+        }
+        
+        .game-preview-container .gp-header p {
+            color: #b8c1ec;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .game-preview-container .gp-games {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .game-preview-container .gp-game-card {
+            width: calc(25% - 20px); /* 4 per row */
+            min-width: 250px;
+            background: var(--gp-card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .game-preview-container .gp-game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .game-preview-container .gp-game-link {
+            display: block;
+        }
+        
+        .game-preview-container .gp-image-container {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .game-preview-container .gp-game-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .game-preview-container .gp-game-card:hover .gp-game-image {
+            transform: scale(1.05);
+        }
+        
+        .game-preview-container .gp-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gp-overlay);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .game-preview-container .gp-game-card:hover .gp-overlay {
+            opacity: 1;
+        }
+        
+        .game-preview-container .gp-play-btn {
+            background: var(--gp-button);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0, 206, 201, 0.3);
+        }
+        
+        .game-preview-container .gp-play-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(0, 206, 201, 0.5);
+        }
+        
+        .game-preview-container .gp-game-info {
+            padding: 15px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .game-preview-container .gp-game-title {
+            font-size: 1.2rem;
+            color: var(--gp-text);
+            margin-bottom: 10px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .game-preview-container .gp-game-title i {
+            color: #ffb142;
+            font-size: 1rem;
+        }
+        
+        .game-preview-container .gp-game-meta {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 12px;
+            margin-top: 10px;
+        }
+        
+        .game-preview-container .gp-game-genre, 
+        .game-preview-container .gp-game-rating {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        
+        .game-preview-container .gp-game-genre {
+            color: #b8c1ec;
+        }
+        
+        .game-preview-container .gp-game-rating {
+            color: #ffb142;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 1200px) {
+            .game-preview-container .gp-game-card {
+                width: calc(33.333% - 20px); /* 3 in a row */
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .game-preview-container .gp-game-card {
+                width: calc(50% - 20px); /* 2 in a row */
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .game-preview-container .gp-game-card {
+                width: 100%; /* 1 in a row */
+                max-width: 350px;
+            }
+            
+            .game-preview-container .gp-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        .game-preview-container .gp-footer-note {
+            text-align: center;
+            margin-top: 25px;
+            color: #b8c1ec;
+            font-size: 0.9rem;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Original website content -->
+        
+        <!-- Game Preview Component - Copy from here -->
+        <div class="game-preview-container">
+            <div class="gp-header">
+                <h2>Popular game recommendations</h2>
+                <p>Selected 8 popular games, click on the picture to start the game in a new window</p>
+            </div>
+            
+            <div class="gp-games">
+                <!--Game 1 -->
+                <div class="gp-game-card">
+                    <a href="https://screwdom3d.org/" target="_blank" class="gp-game-link">
+                        <div class="gp-image-container">
+                            <img src="https://onlinegamedayday.com/screwdom3d-600.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="screwdom3d" class="gp-game-image">
+                            <div class="gp-overlay">
+                                <button class="gp-play-btn">
+                                    <i class="fas fa-play"></i>Play Now
+                                </button>
+                            </div>
+                        </div>
+                        <div class="gp-game-info">
+                            <h3 class="gp-game-title"><i class="fas fa-rocket"></i>screwdom3d</h3>
+                            <div class="gp-game-meta">
+                                <span class="gp-game-genre">puzzle | casual</span>
+                                <span class="gp-game-rating">
+                                    <i class="fas fa-star"></i>4.8
+                                </span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="benefits-image">
-                    <div>
-                        <h3>Mental Benefits</h3>
-                        <p>• Improves memory and concentration</p>
-                        <p>• Enhances pattern recognition</p>
-                        <p>• Develops strategic thinking</p>
-                        <p>• Increases processing speed</p>
-                        <p>• Reduces stress levels</p>
+                
+                <!-- Game 2 -->
+                <div class="gp-game-card">
+                    <a href="https://climbingblock.com/" target="_blank" class="gp-game-link">
+                        <div class="gp-image-container">
+                            <img src="https://onlinegamedayday.com/climbingblock600.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="climbingblock" class="gp-game-image">
+                            <div class="gp-overlay">
+                                <button class="gp-play-btn">
+                                    <i class="fas fa-play"></i>Play Now
+                                </button>
+                            </div>
+                        </div>
+                        <div class="gp-game-info">
+                            <h3 class="gp-game-title"><i class="fas fa-hat-wizard"></i>climbingblock</h3>
+                            <div class="gp-game-meta">
+                                <span class="gp-game-genre">climb | jump</span>
+                                <span class="gp-game-rating">
+                                    <i class="fas fa-star"></i>4.7
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Game 3 -->
+                <div class="gp-game-card">
+                    <a href="https://screamals.com/" target="_blank" class="gp-game-link">
+                        <div class="gp-image-container">
+                            <img src="https://onlinegamedayday.com/screamals600.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="screamals" class="gp-game-image">
+                            <div class="gp-overlay">
+                                <button class="gp-play-btn">
+                                    <i class="fas fa-play"></i>Play Now
+                                </button>
+                            </div>
+                        </div>
+                        <div class="gp-game-info">
+                            <h3 class="gp-game-title"><i class="fas fa-car"></i>screamals</h3>
+                            <div class="gp-game-meta">
+                                <span class="gp-game-genre">casual | sports</span>
+                                <span class="gp-game-rating">
+                                    <i class="fas fa-star"></i>4.9
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Game 4 -->
+                <div class="gp-game-card">
+                    <a href="https://cutinhalf.org/" target="_blank" class="gp-game-link">
+                        <div class="gp-image-container">
+                            <img src="https://onlinegamedayday.com/cutinhalf600.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="cutinhalf" class="gp-game-image">
+                            <div class="gp-overlay">
+                                <button class="gp-play-btn">
+                                    <i class="fas fa-play"></i>Play Now
+                                </button>
+                            </div>
+                        </div>
+                        <div class="gp-game-info">
+                            <h3 class="gp-game-title"><i class="fas fa-cube"></i>cutinhalf</h3>
+                            <div class="gp-game-meta">
+                                <span class="gp-game-genre">slice | puzzle</span>
+                                <span class="gp-game-rating">
+                                    <i class="fas fa-star"></i>4.6
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Game 5 -->
+                <div class="gp-game-card">
+                    <a href="https://onlinerobotroyale.com/" target="_blank" class="gp-game-link">
+                        <div class="gp-image-container">
+                            <img src="https://onlinegamedayday.com/onlinerobotroyale600.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="onlinerobotroyale" class="gp-game-image">
+                            <div class="gp-overlay">
+                                <button class="gp-play-btn">
+                                    <i class="fas fa-play"></i>Play Now
+                                </button>
+                            </div>
+                        </div>
+                        <div class="gp-game-info">
+                            <h3 class="gp-game-title"><i class="fas fa-user-secret"></i>onlinerobotroyale</h3>
+                            <div class="gp-game-meta">
+                                <span class="gp-game-genre">robot | shooting</span>
+                                <span class="gp-game-rating">
+                                    <i class="fas fa-star"></i>4.8
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Game 6 -->
+                <div class="gp-game-card">
+                    <a href="https://craftbrainrot.xyz/" target="_blank" class="gp-game-link">
+                        <div class="gp-image-container">
+                            <img src="https://onlinegamedayday.com/craftbrainrot600.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="craftbrainrot" class="gp-game-image">
+                            <div class="gp-overlay">
+                                <button class="gp-play-btn">
+                                    <i class="fas fa-play"></i>Play Now
+                                </button>
+                            </div>
+                        </div>
+                        <div class="gp-game-info">
+                            <h3 class="gp-game-title"><i class="fas fa-futbol"></i>craftbrainrot</h3>
+                            <div class="gp-game-meta">
+                                <span class="gp-game-genre">puzzle | exercise</span>
+                                <span class="gp-game-rating">
+                                    <i class="fas fa-star"></i>4.7
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Game 7 -->
+                <div class="gp-game-card">
+                    <a href="https://pilesofmahjong.com/" target="_blank" class="gp-game-link">
+                        <div class="gp-image-container">
+                            <img src="https://onlinegamedayday.com/pilesofmahjong600.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="pilesofmahjong" class="gp-game-image">
+                            <div class="gp-overlay">
+                                <button class="gp-play-btn">
+                                    <i class="fas fa-play"></i>Play Now
+                                </button>
+                            </div>
+                        </div>
+                        <div class="gp-game-info">
+                            <h3 class="gp-game-title"><i class="fas fa-candy-cane"></i>pilesofmahjong</h3>
+                            <div class="gp-game-meta">
+                                <span class="gp-game-genre">puzzle | casual</span>
+                                <span class="gp-game-rating">
+                                    <i class="fas fa-star"></i>4.5
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Game 8 -->
+                <div class="gp-game-card">
+                    <a href="https://zomblox.xyz/" target="_blank" class="gp-game-link">
+                        <div class="gp-image-container">
+                            <img src="https://onlinegamedayday.com/zomblox600.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="zomblox" class="gp-game-image">
+                            <div class="gp-overlay">
+                                <button class="gp-play-btn">
+                                    <i class="fas fa-play"></i>Play Now
+                                </button>
+                            </div>
+                        </div>
+                        <div class="gp-game-info">
+                            <h3 class="gp-game-title"><i class="fas fa-dragon"></i>zomblox</h3>
+                            <div class="gp-game-meta">
+                                <span class="gp-game-genre">casual | shooting</span>
+                                <span class="gp-game-rating">
+                                    <i class="fas fa-star"></i>4.9
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="gp-footer-note">
+                All games will open in a new window
+            </div>
+        </div>
+        <!-- Game Preview Component - End copying here -->
+        
+        <!-- The original content of the website continues -->
+        </div>
+    </div>
+
+    <!-- Font Awesome Icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        // Add click effects
+        document.querySelectorAll('.gp-game-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Preventing a button from being triggered twice when clicked
+                if (e.target.classList.contains('gp-play-btn')) return;
+                
+                const button = this.querySelector('.gp-play-btn');
+                if (button) {
+                    button.classList.add('clicked');
+                    setTimeout(() => {
+                        button.classList.remove('clicked');
+                    }, 300);
+                }
+            });
+        });
+    </script>
+    <!-- Testimonials -->
+    <section class="section" style="background: linear-gradient(135deg, #fbfbfd 0%, #f5f5f7 100%);">
+        <div class="container">
+            <h2 class="section-title">Player Testimonials</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">S</div>
+                        <div class="testimonial-info">
+                            <h4>Sarah J.</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
                     </div>
+                    <p class="testimonial-text">"This game has become my daily brain exercise. I've noticed real improvements in my memory and problem-solving at work! The perfect blend of fun and mental stimulation."</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">M</div>
+                        <div class="testimonial-info">
+                            <h4>Michael T.</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"The perfect blend of strategy and relaxation. I love how each level presents new challenges to keep my mind sharp. The cognitive benefits are a real bonus to an already great game."</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">E</div>
+                        <div class="testimonial-info">
+                            <h4>Emma L.</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"As someone who loves traditional Mahjong, this modern twist is refreshing. The game is challenging but not frustrating, and I can feel my cognitive abilities improving with each session."</p>
                 </div>
             </div>
         </div>
@@ -528,67 +1358,108 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
                 <div class="footer-column">
-                    <h3>Piles of Mahjong</h3>
-                    <ul>
-                        <li><a href="#play">Play Game</a></li>
-                        <li><a href="#features">Game Features</a></li>
-                        <li><a href="#benefits">Brain Benefits</a></li>
+                    <h3>
+                        <div class="footer-logo">
+                            <span>M</span>
+                        </div>
+                        Piles of Mahjong
+                    </h3>
+                    <p>Enhance your cognitive abilities while enjoying a captivating puzzle experience.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Play Game</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Cognitive Benefits</a></li>
+                        <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#">Strategy Guide</a></li>
-                        <li><a href="#">Mahjong Tips</a></li>
-                        <li><a href="#">Cognitive Training</a></li>
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Strategy Guides</a></li>
+                        <li><a href="#">Tips & Tricks</a></li>
+                        <li><a href="#">Brain Training</a></li>
+                        <li><a href="#">Research</a></li>
+                        <li><a href="#">FAQ</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Connect</h3>
-                    <ul>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Twitter</a></li>
-                    </ul>
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for game updates and cognitive tips.</p>
+                    <div class="newsletter">
+                        <div class="newsletter-group">
+                            <input type="email" placeholder="Your email">
+                            <button><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                        <p style="color: #777; font-size: 0.85rem;">We respect your privacy. Unsubscribe anytime.</p>
+                    </div>
                 </div>
             </div>
             
             <div class="copyright">
-                &copy; 2023 PilesOfMahjong.com. All rights reserved. This site is not affiliated with CrazyGames.
+                <p>&copy; 2023 PilesofMahjong.com. All rights reserved. Designed with ♥ for puzzle enthusiasts.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+        // Game loading functionality
+        const gameLoader = document.getElementById('gameLoader');
+        const gameError = document.getElementById('gameError');
+        const gameFrame = document.getElementById('gameFrame');
         
-        // Track play button clicks
-        document.querySelectorAll('.play-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                // In a real implementation, you would send analytics here
-                console.log('Play button clicked');
-            });
+        function hideLoader() {
+            gameLoader.style.opacity = '0';
+            setTimeout(() => {
+                gameLoader.style.display = 'none';
+            }, 300);
+        }
+        
+        // Show error if game doesn't load
+        setTimeout(() => {
+            if (gameLoader.style.display !== 'none') {
+                gameError.style.display = 'flex';
+            }
+        }, 8000);
+        
+        // Fullscreen functionality
+        function enterFullscreen() {
+            const gameContainer = document.querySelector('.game-container');
+            
+            if (gameContainer.requestFullscreen) {
+                gameContainer.requestFullscreen();
+            } else if (gameContainer.webkitRequestFullscreen) {
+                gameContainer.webkitRequestFullscreen();
+            } else if (gameContainer.msRequestFullscreen) {
+                gameContainer.msRequestFullscreen();
+            }
+            
+            // Start the game automatically
+            gameFrame.focus();
+            
+            // Scroll to the game container
+            gameContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Listen for escape key to exit fullscreen
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.fullscreenElement) {
+                document.exitFullscreen();
+            }
         });
     </script>
 </body>
