@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Piles of Mahjong</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --apple-gray: #f5f5f7;
+            --apple-blue: #0071e3;
+            --apple-dark: #1d1d1f;
+            --apple-light: #fbfbfd;
+            --apple-blue-light: #e6f1ff;
+            --apple-blue-dark: #0047ab;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #fbfbfd 0%, #f5f5f7 100%);
+            color: #1d1d1f;
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        @media (min-width: 768px) {
+            .logo-container {
+                margin-bottom: 0;
+            }
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--apple-blue), var(--apple-blue-dark));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+        }
+        
+        .logo span {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .logo-text {
+            font-weight: 800;
+            font-size: 28px;
+            background: linear-gradient(135deg, var(--apple-blue), var(--apple-blue-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-links a {
+            padding: 8px 18px;
+            border-radius: 30px;
+            background: var(--apple-light);
+            color: var(--apple-dark);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: var(--apple-gray);
+        }
+        
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 60px 0 30px;
+        }
+        
+        .page-header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Policy Content */
+        .policy-content {
+            background: white;
+            border-radius: 24px;
+            padding: 50px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .policy-content {
+                padding: 30px 20px;
+            }
+        }
+        
+        .policy-section {
+            margin-bottom: 40px;
+        }
+        
+        .policy-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--apple-blue-dark);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .policy-section h3 {
+            font-size: 1.3rem;
+            margin: 25px 0 15px;
+            color: var(--apple-blue);
+        }
+        
+        .policy-section p {
+            margin-bottom: 15px;
+            color: #444;
+        }
+        
+        .policy-section ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        .policy-section li {
+            margin-bottom: 10px;
+            color: #444;
+        }
+        
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .info-table th, .info-table td {
+            border: 1px solid #e0e0e0;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        .info-table th {
+            background-color: var(--apple-blue-light);
+            font-weight: 600;
+        }
+        
+        .info-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .highlight {
+            background-color: var(--apple-blue-light);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 4px solid var(--apple-blue);
+        }
+        
+        .last-updated {
+            text-align: center;
+            font-style: italic;
+            color: #777;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--apple-dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--apple-blue), var(--apple-blue-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+        }
+        
+        .footer-logo span {
+            color: white;
+            font-weight: 700;
+        }
+        
+        .footer-column p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: #ccc;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: white;
+        }
+        
+        .footer-column h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--apple-blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 113, 227, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 99;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .back-to-top:hover {
+            background: var(--apple-blue-dark);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo">
+                        <span>M</span>
+                    </div>
+                    <h1 class="logo-text">Piles of Mahjong</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Privacy Policy</h1>
+            <p>Last updated: September 15, 2023</p>
+        </div>
+    </section>
+
+    <!-- Policy Content -->
+    <section class="policy-content">
+        <div class="container">
+            <div class="policy-section">
+                <h2>Introduction</h2>
+                <p>Welcome to Piles of Mahjong ("we," "our," or "us"). We are committed to protecting your privacy and ensuring you have a positive experience on our website and when using our games. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <a href="https://pilesofmahjong.com">pilesofmahjong.com</a> or use our game services.</p>
+                
+                <div class="highlight">
+                    <p><strong>Please read this Privacy Policy carefully.</strong> By accessing or using our Service, you agree to the collection and use of information in accordance with this policy. If you do not agree with the terms of this Privacy Policy, please do not access the Site or use our Services.</p>
+                </div>
+            </div>
+            
+            <div class="policy-section">
+                <h2>1. Information We Collect</h2>
+                <p>We may collect both personal and non-personal information from you when you use our Services:</p>
+                
+                <h3>Personal Information</h3>
+                <p>When you register an account or use our services, we may ask you to provide certain personally identifiable information, including but not limited to:</p>
+                <ul>
+                    <li>Email address</li>
+                    <li>Username or nickname</li>
+                    <li>Game preferences and settings</li>
+                </ul>
+                
+                <h3>Non-Personal Information</h3>
+                <p>We may automatically collect certain information when you visit, use, or navigate the Site. This information does not reveal your specific identity but may include:</p>
+                <ul>
+                    <li>Device information (device type, operating system, browser type)</li>
+                    <li>Usage data (game progress, scores, achievements)</li>
+                    <li>IP address and general location information</li>
+                    <li>Cookies and similar tracking technologies</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section">
+                <h2>2. How We Use Your Information</h2>
+                <p>We may use the information we collect for various purposes, including to:</p>
+                
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th>Purpose</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Provide and maintain our Service</td>
+                            <td>To operate and maintain our game services and website functionality</td>
+                        </tr>
+                        <tr>
+                            <td>Improve user experience</td>
+                            <td>To understand how users interact with our game and make improvements</td>
+                        </tr>
+                        <tr>
+                            <td>Communicate with you</td>
+                            <td>To send updates, security alerts, and support messages</td>
+                        </tr>
+                        <tr>
+                            <td>Analytics and research</td>
+                            <td>To analyze trends and user behavior to enhance our services</td>
+                        </tr>
+                        <tr>
+                            <td>Prevent fraud and abuse</td>
+                            <td>To monitor and protect the security of our services</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="policy-section">
+                <h2>3. Cookies and Tracking Technologies</h2>
+                <p>We use cookies and similar tracking technologies to track activity on our Service and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier.:cite[1]:cite[8]</p>
+                
+                <p>Types of cookies we use:</p>
+                <ul>
+                    <li><strong>Essential Cookies:</strong> Necessary for the operation of our Service</li>
+                    <li><strong>Analytics/Performance Cookies:</strong> Allow us to recognize and count the number of visitors</li>
+                    <li><strong>Functionality Cookies:</strong> Recognize you when you return to our Service</li>
+                </ul>
+                
+                <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.</p>
+            </div>
+            
+            <div class="policy-section">
+                <h2>4. Data Storage and Security</h2>
+                <p>We implement appropriate technical and organizational measures to protect your personal information against accidental or unlawful destruction, loss, change, or damage.:cite[1]:cite[3] All personal data we collect is stored on secure servers with encryption where appropriate.:cite[1]</p>
+                
+                <p>We will only retain your personal information for as long as necessary to fulfill the purposes we collected it for, including to satisfy any legal, accounting, or reporting requirements.:cite[9]</p>
+            </div>
+            
+            <div class="policy-section">
+                <h2>5. Third-Party Disclosures</h2>
+                <p>We may share your information with third parties in the following situations:</p>
+                
+                <ul>
+                    <li><strong>Service Providers:</strong> We may share your information with third-party vendors who perform services on our behalf (e.g., analytics, hosting, customer service).</li>
+                    <li><strong>Legal Requirements:</strong> We may disclose your information if required to do so by law or in response to valid requests by public authorities.:cite[1]:cite[8]</li>
+                    <li><strong>Business Transfers:</strong> In connection with any merger, sale of company assets, or acquisition of all or a portion of our business.</li>
+                </ul>
+                
+                <p>We do not sell your personal information to third parties for their marketing purposes.</p>
+            </div>
+            
+            <div class="policy-section">
+                <h2>6. Your Data Protection Rights</h2>
+                <p>Depending on your location, you may have the following rights regarding your personal information::cite[3]:cite[9]</p>
+                
+                <ul>
+                    <li><strong>Access:</strong> The right to request copies of your personal data</li>
+                    <li><strong>Rectification:</strong> The right to request correction of inaccurate information</li>
+                    <li><strong>Erasure:</strong> The right to request deletion of your personal data</li>
+                    <li><strong>Restriction:</strong> The right to request the processing of your personal data</li>
+                    <li><strong>Data Portability:</strong> The right to request the transfer of your data to another organization</li>
+                    <li><strong>Objection:</strong> The right to object to our processing of your personal data</li>
+                </ul>
+                
+                <p>To exercise any of these rights, please contact us using the contact information provided in this policy.</p>
+            </div>
+            
+            <div class="policy-section">
+                <h2>7. Children's Privacy</h2>
+                <p>Our Service is not intended for children under the age of 13.:cite[5] We do not knowingly collect personally identifiable information from children under 13. If you become aware that a child has provided us with personal information without parental consent, please contact us. If we become aware that we have collected personal information from children without verification of parental consent, we take steps to remove that information from our servers.</p>
+            </div>
+            
+            <div class="policy-section">
+                <h2>8. Changes to This Privacy Policy</h2>
+                <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date at the top of this Privacy Policy.:cite[1]:cite[9]</p>
+                
+                <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+            </div>
+            
+            <div class="policy-section">
+                <h2>9. Contact Us</h2>
+                <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:</p>
+                
+                <p>
+                    <strong>Email:</strong> privacy@pilesofmahjong.com<br>
+                    <strong>Address:</strong> 123 Game Street, San Francisco, CA 94102, United States
+                </p>
+            </div>
+            
+            <div class="last-updated">
+                <p>This Privacy Policy was last updated on September 15, 2023.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>
+                        <div class="footer-logo">
+                            <span>M</span>
+                        </div>
+                        Piles of Mahjong
+                    </h3>
+                    <p>Enhance your cognitive abilities while enjoying a captivating puzzle experience.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Strategy Guides</a></li>
+                        <li><a href="#">Tips & Tricks</a></li>
+                        <li><a href="#">Brain Training</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for game updates and cognitive tips.</p>
+                    <div class="newsletter">
+                        <div class="newsletter-group">
+                            <input type="email" placeholder="Your email">
+                            <button><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                        <p style="color: #777; font-size: 0.85rem;">We respect your privacy. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 PilesofMahjong.com. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
