@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="体验Piles of Mahjong：经典麻将与三消解谜游戏的迷人融合，提升您的策略和认知能力！">
+    <meta name="keywords" content="pilesofmahjong, 麻将, 三消解谜, 解谜游戏, 麻将牌, 认知能力, 脑力游戏, 策略游戏, 记忆力提升">
+    <link rel="canonical" href="https://pilesofmahjong.com">
+    <title>Piles of Mahjong：策略乐趣的三消游戏</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --apple-gray: #f5f5f7;
+            --apple-blue: #0071e3;
+            --apple-dark: #1d1d1f;
+            --apple-light: #fbfbfd;
+            --apple-blue-light: #e6f1ff;
+            --apple-blue-dark: #0047ab;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #fbfbfd 0%, #f5f5f7 100%);
+            color: #1d1d1f;
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        @media (min-width: 768px) {
+            .logo-container {
+                margin-bottom: 0;
+            }
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--apple-blue), var(--apple-blue-dark));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+        }
+        
+        .logo span {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            font-size: 28px;
+            background: linear-gradient(135deg, var(--apple-blue), var(--apple-blue-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-links a {
+            padding: 8px 18px;
+            border-radius: 30px;
+            background: var(--apple-light);
+            color: var(--apple-dark);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: var(--apple-gray);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        .hero h1 span {
+            color: var(--apple-blue);
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .game-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding-top: 75%; /* 4:3 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            background: #000;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .game-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .play-btn {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--apple-blue), var(--apple-blue-dark));
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 15px 35px;
+            border-radius: 15px;
+            text-decoration: none;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 113, 227, 0.3);
+        }
+        
+        .play-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 113, 227, 0.4);
+        }
+        
+        .play-btn i {
+            margin-right: 10px;
+        }
+        
+        .device-note {
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: 15px;
+        }
+        
+        /* Benefits Section */
+        .section {
+            padding: 70px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--apple-blue), var(--apple-blue-dark));
+            border-radius: 2px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        
+        @media (min-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .benefits-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .benefit-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 113, 227, 0.1);
+            margin: 0 auto 25px;
+        }
+        
+        .icon-circle i {
+            font-size: 30px;
+            color: var(--apple-blue);
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        .benefit-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* Features Section */
+        .features-container {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 50px;
+        }
+        
+        .feature {
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+        }
+        
+        @media (min-width: 992px) {
+            .feature {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+        
+        .feature-image {
+            flex: 1;
+            min-height: 300px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--apple-blue-light), white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        @media (min-width: 992px) {
+            .feature-image {
+                margin-bottom: 0;
+                margin-right: 40px;
+            }
+        }
+        
+        .feature-content {
+            flex: 1;
+        }
+        
+        .feature h3 {
+            font-size: 1.7rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .feature-list {
+            list-style: none;
+        }
+        
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        
+        .feature-list i {
+            color: var(--apple-blue);
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .stat-box {
+            background: rgba(0, 113, 227, 0.05);
+            border: 1px solid rgba(0, 113, 227, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--apple-blue);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        
+        @media (min-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--apple-blue), var(--apple-blue-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        
+        .testimonial-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .stars {
+            color: #FFC107;
+        }
+        
+        .testimonial-text {
+            color: #666;
+            font-style: italic;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--apple-dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--apple-blue), var(--apple-blue-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+        }
+        
+        .footer-logo span {
+            color: white;
+            font-weight: 700;
+        }
+        
+        .footer-column p {
+            color: #aaa;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: #ccc;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: white;
+        }
+        
+        .footer-column h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .newsletter input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px 0 0 8px;
+            border: none;
+            font-family: inherit;
+        }
+        
+        .newsletter button {
+            background: var(--apple-blue);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .newsletter button:hover {
+            background: var(--apple-blue-dark);
+        }
+        
+        .newsletter-group {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Game Loading */
+        .game-loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            z-index: 10;
+            transition: opacity 0.3s ease;
+        }
+        
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            border-top: 5px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .game-error {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            z-index: 20;
+        }
+        
+        .error-content {
+            max-width: 500px;
+        }
+        
+        .error-btn {
+            background: var(--apple-blue);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .error-btn:hover {
+            background: var(--apple-blue-dark);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo">
+                        <span>M</span>
+                    </div>
+                    <h1 class="logo-text">Piles of Mahjong</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="#">首页</a>
+                    <a href="#">游戏</a>
+                    <a href="#">关于</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Piles of Mahjong：<span>策略乐趣的三消游戏</span></h1>
+            <p>体验Piles of Mahjong：经典麻将与三消解谜游戏的迷人融合，提升您的策略和认知能力！</p>
+            
+            <div class="game-container">
+                <div class="game-loading" id="gameLoader">
+                    <div class="loader"></div>
+                    <p>游戏加载中...</p>
+                </div>
+                <div class="game-error" id="gameError">
+                    <div class="error-content">
+                        <h3>游戏加载错误</h3>
+                        <p>我们无法加载游戏。请尝试以下方法：</p>
+                        <ul style="text-align: left; margin: 15px 0 15px 20px;">
+                            <li>检查您的互联网连接</li>
+                            <li>刷新页面</li>
+                            <li>尝试使用不同的浏览器</li>
+                        </ul>
+                        <button class="error-btn" onclick="location.reload()">重新加载页面</button>
+                    </div>
+                </div>
+                <iframe 
+                    src="https://games.crazygames.com/en_US/piles-of-mahjong-jhb/index.html?v=1.336" 
+                    allow="fullscreen" 
+                    id="gameFrame"
+                    onload="hideLoader()"
+                ></iframe>
+            </div>
+            
+            <button class="play-btn" onclick="enterFullscreen()">
+                <i class="fas fa-play"></i> 立即全屏游戏
+            </button>
+            <p class="device-note">支持所有设备 - PC、平板和手机</p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section" style="background: linear-gradient(135deg, #fbfbfd 0%, #f5f5f7 100%);">
+        <div class="container">
+            <h2 class="section-title">认知益处</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="icon-circle">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>记忆力提升</h3>
+                    <p>通过记住麻将牌的位置和模式来增强短期记忆。</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="icon-circle">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <h3>策略思维</h3>
+                    <p>通过思考多步棋来发展长期规划技能。</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="icon-circle">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>问题解决</h3>
+                    <p>提高分析复杂情况和寻找解决方案的能力。</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="icon-circle">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>快速决策</h3>
+                    <p>通过有时间限制的挑战来改善反应时间。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">游戏特色</h2>
+            
+            <div class="features-container">
+                <div class="feature">
+                    <div class="feature-image">
+                        <div style="text-align: center;">
+                            <div style="font-size: 60px; color: var(--apple-blue); margin-bottom: 20px;">
+                                <i class="fas fa-tiles"></i>
+                            </div>
+                            <h3 style="color: var(--apple-blue); font-weight: 700;">麻将牌</h3>
+                        </div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>经典麻将遇见现代三消</h3>
+                        <p>Piles of Mahjong将传统的麻将牌配对游戏玩法与现代三消解谜游戏的上瘾机制相结合。</p>
+                        <ul class="feature-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>数百个难度递增的挑战性关卡</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>精美设计的麻将牌和舒适背景</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>多种游戏模式带来多样化游戏体验</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>每日挑战和特殊活动</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="features-container">
+                <div class="feature">
+                    <div class="feature-image">
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                            <div style="width: 70px; height: 70px; background: var(--apple-blue); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-brain" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <div style="width: 70px; height: 70px; background: var(--apple-blue); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-lightbulb" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <div style="width: 70px; height: 70px; background: var(--apple-blue); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-chart-line" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <div style="width: 70px; height: 70px; background: var(--apple-blue); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-clock" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <div style="width: 70px; height: 70px; background: var(--apple-blue); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-puzzle-piece" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <div style="width: 70px; height: 70px; background: var(--apple-blue); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-memory" style="color: white; font-size: 24px;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>提升您的认知能力</h3>
+                        <p>科学研究表明，像Piles of Mahjong这样的解谜游戏可以显著改善认知功能和心理敏捷性：</p>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-value">37%</div>
+                                <div class="stat-label">问题解决能力</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-value">29%</div>
+                                <div class="stat-label">决策速度</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-value">42%</div>
+                                <div class="stat-label">模式识别</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-value">33%</div>
+                                <div class="stat-label">记忆回忆</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section" style="background: linear-gradient(135deg, #fbfbfd 0%, #f5f5f7 100%);">
+        <div class="container">
+            <h2 class="section-title">玩家评价</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">莎</div>
+                        <div class="testimonial-info">
+                            <h4>莎拉·J</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"这款游戏已成为我每日的脑力锻炼。我注意到工作中的记忆力和问题解决能力有了真正的改善！娱乐与精神刺激的完美结合。"</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">迈</div>
+                        <div class="testimonial-info">
+                            <h4>迈克尔·T</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"策略与放松的完美结合。我喜欢每个关卡如何呈现新的挑战来保持我的思维敏锐。认知益处对于已经出色的游戏来说是一个真正的奖励。"</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">艾</div>
+                        <div class="testimonial-info">
+                            <h4>艾玛·L</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"作为一个热爱传统麻将的人，这种现代转折令人耳目一新。游戏具有挑战性但不令人沮丧，我能感觉到每次游戏后我的认知能力都在提高。"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>
+                        <div class="footer-logo">
+                            <span>M</span>
+                        </div>
+                        Piles of Mahjong
+                    </h3>
+                    <p>在享受迷人解谜体验的同时提升您的认知能力。</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="privacy.html">隐私政策</a></li>
+                        <li><a href="terms.html">服务条款</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>资源</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">策略指南</a></li>
+                        <li><a href="#">技巧与窍门</a></li>
+                        <li><a href="#">脑力训练</a></li>
+                        <li><a href="#">研究</a></li>
+                        <li><a href="#">常见问题</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>新闻通讯</h4>
+                    <p>订阅游戏更新和认知技巧。</p>
+                    <div class="newsletter">
+                        <div class="newsletter-group">
+                            <input type="email" placeholder="您的邮箱" class="px-4 py-2 rounded-l-lg w-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-apple-blue">
+                            <button class="bg-apple-blue px-5 py-2 rounded-r-lg font-medium hover:bg-apple-blue-dark transition">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <p style="color: #777; font-size: 0.85rem; margin-top: 5px;">我们尊重您的隐私。随时可以取消订阅。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 PilesofMahjong.com. 保留所有权利。为解谜爱好者用心设计。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Game loading functionality
+        const gameLoader = document.getElementById('gameLoader');
+        const gameError = document.getElementById('gameError');
+        const gameFrame = document.getElementById('gameFrame');
+        
+        function hideLoader() {
+            gameLoader.style.opacity = '0';
+            setTimeout(() => {
+                gameLoader.style.display = 'none';
+            }, 300);
+        }
+        
+        // Show error if game doesn't load
+        setTimeout(() => {
+            if (gameLoader.style.display !== 'none') {
+                gameError.style.display = 'flex';
+            }
+        }, 8000);
+        
+        // Fullscreen functionality
+        function enterFullscreen() {
+            const gameContainer = document.querySelector('.game-container');
+            
+            if (gameContainer.requestFullscreen) {
+                gameContainer.requestFullscreen();
+            } else if (gameContainer.webkitRequestFullscreen) {
+                gameContainer.webkitRequestFullscreen();
+            } else if (gameContainer.msRequestFullscreen) {
+                gameContainer.msRequestFullscreen();
+            }
+            
+            // Start the game automatically
+            gameFrame.focus();
+            
+            // Scroll to the game container
+            gameContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Listen for escape key to exit fullscreen
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.fullscreenElement) {
+                document.exitFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>
